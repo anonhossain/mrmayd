@@ -1,0 +1,23 @@
+{
+    "evaluations": [
+        {
+            "question": "Can you describe your experience using SQL, Python, Power BI, and Excel for data analytics and reporting tasks?",
+            "answer": "I have over 4 years of experience using SQL, Python, Power BI, and Excel for a variety of data analytics and reporting tasks. I have used Python (with Pandas and NumPy) and SQL for data extraction, cleaning, and processing, and Power BI and Excel for building interactive dashboards and automating reports. For example, in my Olympic Games Data Analysis project, I cleaned and processed a large dataset in Python, loaded it into PostgreSQL, and built a Power BI dashboard to visualize trends and insights.",
+            "response": "I used python for data presentation while Power bI for data cleaning and SQL for data extraction.",
+            "score": 3
+        },
+        {
+            "question": "Can you give an example where you built a dashboard or automated a report to help a business make better decisions?",
+            "answer": "In my Olympic Games Data Analysis & Visualization project, I processed over 271,000 Olympic records, handled missing data, and built an interactive Power BI dashboard. This dashboard provided insights on medals, participation, and country performance, helping stakeholders understand historical trends. Similarly, for Diwali Sales Analysis, I used Python for data cleaning and Power BI to create a dashboard that highlighted key customer segments and revenue contributors, providing actionable insights for targeted sales strategies.",
+            "response": "I built a Power BI dashboard that visualized sales data and helped the marketing team identify high-performing product categories.",
+            "score": 6
+        },
+        {
+            "question": "How have you worked with cross-functional teams to improve operational efficiency or deliver data-driven solutions?",
+            "answer": "At Join Venture AI, I coordinated with over 20 engineers and collaborated with AI, backend, and DevOps teams to design and deliver scalable data systems and analytical pipelines. I also managed stakeholder communication and cross-functional teams during my time as a Business Analyst at AbSun Studio, ensuring smooth project delivery and operational optimization throughout the software development life cycle.",
+            "response": "I collaborated with the marketing and sales teams to streamline data collection processes, resulting in a 15% increase in operational efficiency.",
+            "score": 6
+        }
+    ],
+    "avg_score": 5.0
+}

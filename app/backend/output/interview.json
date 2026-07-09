@@ -1,0 +1,37 @@
+[
+    {
+        "question": "Why Are you here?",
+        "answer": "Candidate should know basic syntax and OOP principles.",
+        "response": "I have built data pipelines and backend applications using Python for 3 years."
+    },
+    {
+        "question": "Can you describe your experience using SQL?",
+        "answer": "Candidate should mention optimization, joins, and indexing.",
+        "response": "I use PostgreSQL daily for complex analytical windows functions."
+    },
+    {
+        "question": "How do you deploy your AI models?",
+        "answer": "Look for Docker, FastAPI, or cloud-native serving experience.",
+        "response": "I containerize them with Docker and deploy them behind a FastAPI gateway."
+    },
+    {
+        "question": "Why Are you here?",
+        "answer": "Candidate should know basic syntax and OOP principles.",
+        "response": "I have built data pipelines and backend applications using Python for 3 years."
+    },
+    {
+        "question": "Why Are you here?",
+        "answer": "Candidate should know basic syntax and OOP principles.",
+        "response": "I have built data pipelines and backend applications using Python for 3 years."
+    },
+    {
+        "question": "Why Are you here?",
+        "answer": "Candidate should know basic syntax and OOP principles.",
+        "response": "I have built data pipelines and backend applications using Python for 3 years."
+    },
+    {
+        "question": "Why Are you here?",
+        "answer": "Candidate should know basic syntax and OOP principles.",
+        "response": "I have built data pipelines and backend applications using Python for 3 years."
+    }
+]
