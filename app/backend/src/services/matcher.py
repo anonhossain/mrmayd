@@ -43,14 +43,14 @@ def matcher( cv_file: str, jd_text: str) -> Matcher:
 
     # 2. Return the automatically validated and structured object directly
 
-    usage = response.usage
-    print(f"Input tokens: {usage.input_tokens}")
-    if hasattr(usage, "input_tokens_details") and usage.input_tokens_details and usage.input_tokens_details.cached_tokens:
-        print(f"Cached tokens: {usage.input_tokens_details.cached_tokens}")
-    new_tokens = usage.input_tokens - usage.input_tokens_details.cached_tokens
-    print(f"Output tokens: {usage.output_tokens}")
-    print(f"Total tokens: {usage.total_tokens}")
-    print(f"New tokens used: {new_tokens}")
+    # usage = response.usage
+    # print(f"Input tokens: {usage.input_tokens}")
+    # if hasattr(usage, "input_tokens_details") and usage.input_tokens_details and usage.input_tokens_details.cached_tokens:
+    #     print(f"Cached tokens: {usage.input_tokens_details.cached_tokens}")
+    # new_tokens = usage.input_tokens - usage.input_tokens_details.cached_tokens
+    # print(f"Output tokens: {usage.output_tokens}")
+    # print(f"Total tokens: {usage.total_tokens}")
+    # print(f"New tokens used: {new_tokens}")
 
     return response.output_parsed
 
