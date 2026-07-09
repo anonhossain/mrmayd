@@ -57,7 +57,7 @@ def matcher( cv_file: str, jd_text: str) -> Matcher:
 
 if __name__ == "__main__":
     # Example usage
-    cv_file_path = r"C:\files\mrmayd\app\backend\files\ATS Anon Hossain BI.docx.pdf"
+    cv_file_path = r"C:\files\mrmayd\app\backend\files\Anon Hossain AI.docx.pdf"
     jd_path = r"C:\files\mrmayd\app\backend\Dumy.txt"
     with open(jd_path, "r", encoding="utf-8") as file:
         jd_text = file.read()

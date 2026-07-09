@@ -122,4 +122,40 @@ class Prompt:
             {interview_json}
 
             """
-    
+
+    def cv_content_optimizer(self, cv_text: str, job_description: str) -> str:
+        """Phase 1: Focuses strictly on text rewriting, keyword matching, and factual mapping."""
+        return f"""
+                You are an expert ATS Optimization Architect. Your sole job is to rewrite the candidate's existing CV to perfectly align with the target Job Description (JD). 
+
+                ### RULES:
+                1. Preserve absolute factual integrity. Do not fabricate dates, titles, or certifications.
+                2. Infuse relevant keywords, core competencies, and tooling terminology directly from the JD where the candidate's history supports it.
+                3. Optimize all professional experience bullet points using the X-Y-Z formula: "Accomplished [X] as measured by [Y], by doing [Z]."
+
+                ### INPUTS:
+                [TARGET JOB DESCRIPTION]
+                {job_description}
+
+                [EXISTING CANDIDATE CV]
+                {cv_text}
+
+                Output the complete, redesigned resume sections strictly in clean Markdown format inside the requested schema field.
+                """.strip()
+
+    def cv_html_renderer(self, optimized_markdown: str) -> str:
+        """Phase 2: Focuses strictly on modern UI/UX design, beautiful typography, and clean HTML structure."""
+        return f"""
+                You are an elite Frontend Engineer and UI/UX Designer specializing in professional corporate documents. Take the provided optimized CV markdown text and convert it into a beautiful, production-grade HTML5 page.
+
+                ### DESIGN REQUIREMENTS:
+                1. Include a modern, professional embedded `<style>` block in the `<head>`.
+                2. Use a clean font stack (e.g., Inter, system-ui, sans-serif) with strong visual hierarchy (distinct sizes, line-heights, and muted color variants for metadata).
+                3. Use a sophisticated, modern corporate color palette (e.g., deep slate text, subtle off-white backgrounds, elegant border dividers between major sections).
+                4. Ensure the layout is clean, spaced perfectly with margins/padding, and entirely print-ready.
+
+                ### DATA INPUT:
+                {optimized_markdown}
+
+                Output the response starting directly with <!DOCTYPE html> within the schema string field. Do not truncate any sections.
+                """.strip()

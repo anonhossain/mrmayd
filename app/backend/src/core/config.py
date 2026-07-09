@@ -46,7 +46,12 @@ class Config:
         # Speech-to-Text Model
         self.OPENAI_STT_MODEL= "whisper-1"
 
-
+        # CV Improvement Settings
+        self.OPENAI_MODEL_CV_IMPROVEMENT = "gpt-5.1"
+        self.TEMPERATURE_CV_IMPROVEMENT = 0.5
+        self.MAXIMUM_TOKENS_CV_IMPROVEMENT = 16000
+        self.PROMPT_CACHE_RETENTION_CV_IMPROVEMENT = "24h"  # Retain prompt cache for 24 hours
+        self.REASONING_EFFORT_CV_IMPROVEMENT ={"effort": "low"}
 
 # Initialize the settings instance
 settings = Config()

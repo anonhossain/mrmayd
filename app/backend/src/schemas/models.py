@@ -42,3 +42,13 @@ class InterviewQAEntry(BaseModel):
     question: str
     answer: str
     response: str
+
+class CVContentResponse(BaseModel):
+    optimized_markdown: str = Field(
+        description="The completely rewritten and optimized CV content in markdown format, perfectly aligned with the JD keywords."
+    )
+
+class CVImprovementResponse(BaseModel):
+    optimized_html: str = Field(
+        description="The complete, production-grade HTML5 document containing all CV sections with embedded CSS styling within the <head>."
+    )

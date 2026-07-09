@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>ANON HOSSAIN - Junior AI / Data Analytics Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        /* ---------- Base Reset ---------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #111827; /* slate-900 */
+            background: #f3f4f6; /* slate-100 */
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ---------- Page Layout ---------- */
+        .page {
+            max-width: 900px;
+            margin: 32px auto;
+            padding: 32px 40px;
+            background: #f9fafb; /* slate-50 */
+            border-radius: 10px;
+            border: 1px solid #e5e7eb; /* slate-200 */
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+            }
+            .page {
+                margin: 0;
+                max-width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                border: none;
+                padding: 18mm 18mm 20mm;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+
+        /* ---------- Typography ---------- */
+        h1, h2, h3, h4 {
+            margin: 0;
+            font-weight: 650;
+            color: #0f172a; /* slate-900 */
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: 0.03em;
+        }
+
+        h2 {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #1f2937; /* gray-800 */
+        }
+
+        h3 {
+            font-size: 14px;
+        }
+
+        p {
+            margin: 0 0 4px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: 550;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #4b5563; /* gray-600 */
+            margin-top: 4px;
+        }
+
+        .muted {
+            color: #6b7280; /* gray-500 */
+        }
+
+        .meta {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        a {
+            color: #2563eb; /* blue-600 */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------- Header ---------- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 18px;
+        }
+
+        .header-main {
+            flex: 2;
+        }
+
+        .header-main h1 {
+            margin-bottom: 2px;
+        }
+
+        .header-contact {
+            flex: 1.5;
+            text-align: right;
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        .header-contact div {
+            margin-bottom: 2px;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        /* ---------- Sections ---------- */
+        .section {
+            padding: 12px 0 6px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .section-header h2 {
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .section-header h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 40px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #1f2937, #4b5563);
+        }
+
+        /* ---------- Lists ---------- */
+        ul {
+            margin: 2px 0 6px 18px;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 2px;
+        }
+
+        .compact-list {
+            margin-top: 2px;
+        }
+
+        .compact-list li {
+            margin-bottom: 0;
+        }
+
+        /* ---------- Layout Helpers ---------- */
+        .two-col {
+            display: flex;
+            gap: 32px;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+
+        @media (max-width: 720px) {
+            .header {
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .header-contact {
+                text-align: left;
+            }
+
+            .two-col {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
+        /* ---------- Experience, Projects, Education ---------- */
+        .role {
+            margin-bottom: 6px;
+        }
+
+        .role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+        }
+
+        .role-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #111827;
+        }
+
+        .role-org {
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .role-location {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .role-dates {
+            font-size: 12px;
+            color: #6b7280;
+            white-space: nowrap;
+        }
+
+        .project-tech {
+            font-size: 12px;
+            color: #4b5563;
+            margin-bottom: 2px;
+        }
+
+        .project-meta {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .edu-entry {
+            margin-bottom: 4px;
+        }
+
+        .edu-degree {
+            font-weight: 600;
+        }
+
+        .edu-inst {
+            color: #4b5563;
+        }
+
+        .edu-dates {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* ---------- Tags / Emphasis ---------- */
+        strong {
+            font-weight: 600;
+        }
+
+        em {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-main">
+            <h1>ANON HOSSAIN</h1>
+            <div class="subtitle">Junior AI / Data Analytics Engineer</div>
+        </div>
+        <div class="header-contact">
+            <div><span class="label">Phone:</span> +880 17410-97116</div>
+            <div><span class="label">Email:</span> <a href="mailto:anonhossain1710@gmail.com">anonhossain1710@gmail.com</a></div>
+            <div><span class="label">GitHub:</span> <a href="https://github.com/anonhossain" target="_blank" rel="noreferrer">github.com/anonhossain</a></div>
+            <div><span class="label">HuggingFace:</span> <a href="https://huggingface.co/anonhs" target="_blank" rel="noreferrer">huggingface.co/anonhs</a></div>
+            <div><span class="label">Medium:</span> <a href="https://medium.com/@anonhossain1710" target="_blank" rel="noreferrer">medium.com/@anonhossain1710</a></div>
+        </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Professional Summary</h2>
+        </div>
+        <p>
+            Data-focused engineer with 4+ years of experience designing and implementing analytics-driven automation, reporting workflows, and AI-powered solutions. Skilled in SQL, Python (FastAPI), and spreadsheet-based reporting (Google Sheets/Excel-equivalent) to extract, process, and transform data into actionable insights. Experienced in data pre-processing, information extraction, and building scalable pipelines that improve operational efficiency and reduce manual effort across HR, documentation, and emergency-response use cases. Strong track record of collaborating with cross-functional teams, managing stakeholders, and delivering production-ready systems.
+        </p>
+    </section>
+
+    <!-- Core Skills -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Core Skills</h2>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <p><strong>Data &amp; Analytics</strong></p>
+                <ul class="compact-list">
+                    <li>SQL (queries, data extraction, transformations)</li>
+                    <li>Python (FastAPI, data processing, automation scripts)</li>
+                    <li>Advanced spreadsheet usage (Google Sheets / Excel-equivalent for reporting, formulas, and analysis)</li>
+                    <li>Data Pre-processing &amp; Cleaning</li>
+                    <li>Information Extraction from unstructured and semi-structured data</li>
+                    <li>Data Visualization &amp; Reporting (tables, summaries, dashboards in Sheets)</li>
+                </ul>
+
+                <p><strong>Automation &amp; Reporting</strong></p>
+                <ul class="compact-list">
+                    <li>Reporting automation (Excel/Sheets outputs, email notifications)</li>
+                    <li>Workflow automation (n8n, webhooks, APIs)</li>
+                    <li>Incident routing &amp; operational monitoring</li>
+                    <li>AI-powered document and CV analysis for HR and operations</li>
+                </ul>
+            </div>
+            <div>
+                <p><strong>Technical Stack</strong></p>
+                <ul class="compact-list">
+                    <li>Python, FastAPI, Pydantic</li>
+                    <li>SQL</li>
+                    <li>n8n, Telegram Bot API, Webhooks</li>
+                    <li>Google Cloud Platform (Drive, Sheets, Gmail integration)</li>
+                    <li>OpenAI API, Anthropic API, Google Model API</li>
+                    <li>LangChain, LangGraph, LangSmith, Pydantic AI</li>
+                    <li>Git, GitHub, CI/CD, Linux, Celery, Redis</li>
+                </ul>
+
+                <p><strong>System Design &amp; Collaboration</strong></p>
+                <ul class="compact-list">
+                    <li>Monolith &amp; Microservices Architecture</li>
+                    <li>Orchestration-based Design Patterns &amp; Workflow Design</li>
+                    <li>Class Diagrams &amp; End-to-End Solution Architecture</li>
+                    <li>Business Analysis, Requirement Gathering, Stakeholder Management</li>
+                    <li>Cross-functional Collaboration (engineering, operations, documentation, HR)</li>
+                    <li>Technical Documentation &amp; Communication</li>
+                </ul>
+
+                <p><strong>Relevant Certificate</strong></p>
+                <ul class="compact-list">
+                    <li>IBM Data Science Professional Certificate</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Professional Experience</h2>
+        </div>
+
+        <!-- JR AI ENGINEER -->
+        <div class="role">
+            <div class="role-header">
+                <div>
+                    <div class="role-title">JR AI Engineer</div>
+                    <div class="role-org">Join Venture AI <span class="role-location muted">(On-site)</span></div>
+                </div>
+                <div class="role-dates">June 2025 &ndash; Present</div>
+            </div>
+            <ul>
+                <li>Delivered AI and analytics solutions for clients as measured by successful deployment of multiple production systems, by consulting on requirements, selecting suitable open/closed-source models, and aligning solutions with scalability, infrastructure, and budget constraints.</li>
+                <li>Improved development efficiency and maintainability as measured by reduced rework and clearer handoffs, by designing end-to-end AI and data-processing architectures, class diagrams, and coding standards for analytics and automation pipelines.</li>
+                <li>Accelerated feature delivery and debugging as measured by shorter development cycles, by applying orchestration-based patterns to AI and data workflows to modularize tasks such as data ingestion, transformation, and result generation.</li>
+                <li>Enhanced cross-team delivery performance as measured by meeting project timelines across multiple initiatives, by coordinating 20+ engineers and collaborating with AI, backend, and DevOps teams to build scalable, production-ready systems.</li>
+                <li>Strengthened governance and reliability of analytics-driven solutions as measured by consistent monitoring and controlled usage, by incorporating model evaluation, AI security, PII considerations, and token utilization auditing into deployed workflows.</li>
+            </ul>
+        </div>
+
+        <!-- HEAD OF DOCUMENTATION -->
+        <div class="role">
+            <div class="role-header">
+                <div>
+                    <div class="role-title">Head of Documentation / USG of Documentation</div>
+                    <div class="role-org">Daffodil International University Model United Nations (DIU MUN)</div>
+                </div>
+                <div class="role-dates">April 2022 &ndash; March 2025</div>
+            </div>
+            <ul>
+                <li>Ensured smooth execution of a national conference (~150 delegates) as measured by on-time delivery of all official documents, by leading documentation operations and coordinating with 67 organizing members for approvals, schedules, and reporting.</li>
+                <li>Improved process transparency and control as measured by error-free handling of sensitive event data, by managing approvals, budget proposals, official communications, and end-to-end documentation flows.</li>
+                <li>Increased operational efficiency across Finance, Transport, and Hospitality as measured by reduced follow-ups and delays, by collaborating with multiple departments to define information needs, streamline document formats, and standardize reporting timelines.</li>
+                <li>Prevented operational bottlenecks as measured by zero missed critical documentation deadlines, by enforcing strict timelines, tracking deliverables, and proactively resolving documentation issues.</li>
+                <li>Enhanced coordination across parallel tasks as measured by smoother information sharing among organizing teams, by developing structured tracking and documentation systems that functioned as a central source of truth for event data.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Selected Projects -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Selected Projects</h2>
+        </div>
+
+        <!-- AI Resume Analyzer & HR Automation System -->
+        <div class="role">
+            <div class="role-header">
+                <div>
+                    <div class="role-title">AI Resume Analyzer &amp; HR Automation System</div>
+                    <div class="project-tech">Python (FastAPI), Pydantic, SQL-friendly outputs, Spreadsheet-based Reporting</div>
+                </div>
+                <div class="role-dates meta">GitHub Source Code</div>
+            </div>
+            <ul>
+                <li>Reduced manual HR workload as measured by decreased time spent on CV screening and interview-question preparation, by developing a FastAPI-based system that extracted candidate data from resumes and generated structured profiles.</li>
+                <li>Increased data accuracy and consistency as measured by standardized candidate records, by using Pydantic models for validated, structured outputs ready for storage in SQL databases or export to Excel/Google Sheets.</li>
+                <li>Improved decision-making in recruitment as measured by clearer candidate comparisons, by generating match scores and exporting computed metrics to spreadsheets for further analysis, filtering, and reporting by HR teams.</li>
+                <li>Enhanced reliability and scalability of the HR analytics workflow as measured by stable performance in multi-user tests, by applying orchestration-based design patterns to separate parsing, scoring, and reporting steps.</li>
+            </ul>
+        </div>
+
+        <!-- Community Emergency Response Automation -->
+        <div class="role">
+            <div class="role-header">
+                <div>
+                    <div class="role-title">Community Emergency Response Automation</div>
+                    <div class="project-tech">n8n, Telegram Bot API, Google Sheets, Google Drive, Gmail, GCP</div>
+                </div>
+                <div class="role-dates meta">GitHub Source Code</div>
+            </div>
+            <ul>
+                <li>Eliminated manual routing delays in emergency handling as measured by real-time dispatch of incident reports, by building an asynchronous workflow in n8n that collected reports via Telegram Bot and automatically forwarded them to relevant authorities.</li>
+                <li>Improved data organization for operational teams as measured by centralized access to incident logs, by integrating Google Sheets and Drive to store and structure emergency reports for later analysis and reporting.</li>
+                <li>Strengthened verification and traceability of incident data as measured by reduced ambiguity in incoming reports, by implementing automated identity verification, conditional routing logic, and email notifications via Gmail.</li>
+                <li>Enabled future performance analysis as measured by consistent, structured datasets, by capturing key incident attributes (location, category, time) in spreadsheet form suitable for dashboards and trend analysis.</li>
+            </ul>
+        </div>
+
+        <!-- AI Podcast Content Shortening System -->
+        <div class="role">
+            <div class="role-header">
+                <div>
+                    <div class="role-title">AI Podcast Content Shortening System</div>
+                    <div class="project-tech">Python-based Audio Processing &amp; Content Analytics</div>
+                </div>
+                <div class="role-dates meta">Source code confidential</div>
+            </div>
+            <ul>
+                <li>Maintained full narrative coherence in condensed audio content as measured by 100% preservation of original meaning and speaker intent, by designing a pipeline to analyze multi-speaker podcasts and compress 50-minute episodes to 30&ndash;40% of original length without voice cloning.</li>
+                <li>Improved listener experience as measured by smooth transitions and complete sentences, by resolving timestamp alignment issues, handling speaker turns, and ensuring context-aware segmentation of audio segments.</li>
+                <li>Enabled repeatable processing of long-form audio data as measured by consistent quality across multiple episodes, by standardizing content-analysis and transformation steps in the workflow.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Education</h2>
+        </div>
+
+        <div class="edu-entry">
+            <div class="edu-degree">M.S. in Software Engineering</div>
+            <div class="edu-inst">Daffodil International University</div>
+            <div class="edu-dates">2025 &ndash; Present</div>
+        </div>
+
+        <div class="edu-entry">
+            <div class="edu-degree">B.Sc. in Software Engineering</div>
+            <div class="edu-inst">Daffodil International University</div>
+            <div class="edu-dates">2021 &ndash; 2025</div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Achievements</h2>
+        </div>
+        <ul>
+            <li>1st Runner-Up &ndash; 3-Minute Thesis Competition (Daffodil International University / University of Queensland) for <strong>"HR Helper: AI Solution for HR"</strong>, highlighting automation and data-driven decision-making in HR operations.</li>
+            <li>2nd Runner-Up &ndash; 4th DIU Data Science Summit 2024 (National Project Showcase) for <strong>"AI ATS Resume Analyzer &amp; Extractor"</strong>, recognizing innovation in data extraction, analytics, and reporting for recruitment.</li>
+        </ul>
+    </section>
+
+    <!-- Extra-Curricular Activities -->
+    <section class="section">
+        <div class="section-header">
+            <h2>Extra-Curricular Activities</h2>
+        </div>
+        <p><strong>Model United Nations Participation</strong></p>
+        <ul>
+            <li>NSTU Conference 2024 &ndash; Represented Guyana in the Security Council.</li>
+            <li>Leading International University 2022 &ndash; Represented Gambia in UNICEF.</li>
+            <li>Rajshahi University Conference 2020 &ndash; Represented Jordan in the Specialized Committee for Bangladesh Affairs.</li>
+        </ul>
+    </section>
+
+    <!-- References -->
+    <section class="section">
+        <div class="section-header">
+            <h2>References</h2>
+        </div>
+        <div class="two-col">
+            <div>
+                <p><strong>Nahida Akter</strong></p>
+                <p class="muted">Business Manager, Oracle Bangladesh Limited</p>
+                <p class="meta">Email: <a href="mailto:nahida1710@gmail.com">nahida1710@gmail.com</a></p>
+                <p class="meta">Phone: +880 1730-370365</p>
+            </div>
+            <div>
+                <p><strong>Chowdhury Mahmud Ali</strong></p>
+                <p class="muted">Executive Director, Bhaiya Group</p>
+                <p class="meta">Email: <a href="mailto:mahmud.bhaiyahousing@gmail.com">mahmud.bhaiyahousing@gmail.com</a></p>
+                <p class="meta">Phone: +880 1404-441818</p>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
