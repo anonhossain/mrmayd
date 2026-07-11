@@ -55,7 +55,8 @@ class Prompt:
         Your task is to provide suggestions to improve the candidate's CV.
          - Write it in easy english, clear and concise.
          - Give suggestion what skills can be added to the CV to make it more relevant standard.
-         - Use the information from the CV and job description to provide actionable suggestions that highlight the candidate's relevant skills and experiences.
+         - Make it more ATS friendly and standard.
+         - Use the information from the CV to provide actionable suggestions that highlight the candidate's relevant skills and experiences.
         """
     
     def matcher(self, cv_text: str, jd_text: str) -> str:
@@ -159,3 +160,14 @@ class Prompt:
 
                 Output the response starting directly with <!DOCTYPE html> within the schema string field. Do not truncate any sections.
                 """.strip()
+    
+    def ats_score(self, cv_text: str, ) -> str:
+        return f"""
+        You are a professional ATS evaluator. You will be given a CV for ATS Review and return a score.
+        CV: {cv_text}
+        Your task is to evaluate the CV against the ATS standard.
+            - Provide a % match score based on the candidate's skills, experiences, and qualifications in relation to the ATS standard.
+            - Donot anything else, just the matching number in percentage.
+            - No need to give the % sign, just the number.
+       
+        """

@@ -13,6 +13,9 @@ class Suggestions(BaseModel):
 class Matcher(BaseModel):
     match_score: float = Field(description="The percentage match between the CV and the job description")
 
+class ATSScore(BaseModel):
+    score: float = Field(description="The ATS score for the CV, indicating how well it aligns with standard ATS requirements")   
+
 class InterviewQuestion(BaseModel):
     question: str = Field(description="The interview question generated based on the CV and job description")
     answer: str = Field(description="The answer to the interview question, based on the CV and job description")
