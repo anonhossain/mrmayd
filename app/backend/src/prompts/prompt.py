@@ -1,5 +1,4 @@
 #app/backend/src/prompts/prompt.py
-
    
 class Prompt:
 
@@ -23,7 +22,6 @@ class Prompt:
          - In body, include only the salutation and the main content of the letter.
          - In footer, include only the closing phrase and, candidate's name and any other information if found in CV.
          {{ 
-         
             "subject": "<subject>", 
             "body": "<body>",
             "footer": "<footer>"
