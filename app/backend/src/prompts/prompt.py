@@ -115,7 +115,7 @@ class Prompt:
         }}
 
         [CANDIDATE CV DATA]
-            {cv_text}
+        {cv_text}
 
         [INTERVIEW RESPONSES DATA]
         {interview_json}
