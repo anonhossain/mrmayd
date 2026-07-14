@@ -131,6 +131,7 @@ class Prompt:
         1. Preserve absolute factual integrity. Do not fabricate dates, titles, or certifications.
         2. Infuse relevant keywords, core competencies, and tooling terminology directly from the JD where the candidate's history supports it.
         3. Optimize all professional experience bullet points using the X-Y-Z formula: "Accomplished [X] as measured by [Y], by doing [Z]."
+        4. Keep the new content for 1-2 pages maximum, concise, and highly readable. Not more than 3 pages.
 
         ### INPUTS:
         [TARGET JOB DESCRIPTION]
