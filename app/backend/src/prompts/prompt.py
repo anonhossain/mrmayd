@@ -145,21 +145,136 @@ class Prompt:
 
     def cv_html_renderer(self, optimized_markdown: str) -> str:
         """Phase 2: Focuses strictly on modern UI/UX design, beautiful typography, and clean HTML structure."""
+        # return f"""
+        # You are an elite Frontend Engineer and UI/UX Designer specializing in professional corporate documents. Take the provided optimized CV markdown text and convert it into a beautiful, production-grade HTML5 page.
+
+        # ### DESIGN REQUIREMENTS:
+        # 1. Include a modern, professional embedded `<style>` block in the `<head>`.
+        # 2. Use a clean font stack (e.g., Inter, system-ui, sans-serif) with strong visual hierarchy (distinct sizes, line-heights, and muted color variants for metadata).
+        # 3. Use a sophisticated, modern corporate color palette (e.g., deep slate text, subtle off-white backgrounds, elegant border dividers between major sections).
+        # 4. Ensure the layout is clean, spaced perfectly with margins/padding, and entirely print-ready.
+
+        # ### EXECUTIVE DESIGN RULES:
+        # 1. **Layout**: Strict single-column. Absolutely NO sidebars, no grid columns, no background colors.
+        # 2. **Typography**: Use 'Inter' font. Use bold/uppercase for section headers with a thin 1px horizontal border bottom.
+        # 3. **Timeline Alignment**: Use CSS Flexbox for Company/Institution entries. Company Name must be flush left, and Dates must be flush right on the same line.
+        # 4. **Visual Hierarchy**: Professional, high-contrast, minimalist.
+
+        # ### CSS TEMPLATE TO ENFORCE:
+        # ```css
+        # @import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap)');
+        # body {{ font-family: 'Inter', sans-serif; color: #111; line-height: 1.5; font-size: 13px; margin: 0; padding: 40px; }}
+        # .header {{ text-align: center; margin-bottom: 25px; }}
+        # .header h1 {{ font-size: 24px; font-weight: 700; text-transform: uppercase; margin: 0; }}
+        # .header .tagline {{ font-size: 14px; font-weight: 500; margin: 5px 0; }}
+        # .header .contact {{ font-size: 12px; color: #444; }}
+        # .section-title {{ font-size: 13px; font-weight: 700; text-transform: uppercase; border-bottom: 1px solid #111; margin: 20px 0 10px 0; padding-bottom: 3px; }}
+        # .flex-row {{ display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; margin-top: 10px; }}
+        # .role-title {{ font-style: italic; color: #333; }}
+        # li {{ margin-bottom: 4px; }}
+
+        # ### DATA INPUT:
+        # {optimized_markdown}
+
+        # Output the response starting directly with <!DOCTYPE html> within the schema string field. Do not truncate any sections.
+        # """.strip()
         return f"""
-        You are an elite Frontend Engineer and UI/UX Designer specializing in professional corporate documents. Take the provided optimized CV markdown text and convert it into a beautiful, production-grade HTML5 page.
+        You are an expert Typography, Print Layout, and Frontend UI Engineer. Convert the provided Markdown into a classic, single-column Executive Resume. 
 
-        ### DESIGN REQUIREMENTS:
-        1. Include a modern, professional embedded `<style>` block in the `<head>`.
-        2. Use a clean font stack (e.g., Inter, system-ui, sans-serif) with strong visual hierarchy (distinct sizes, line-heights, and muted color variants for metadata).
-        3. Use a sophisticated, modern corporate color palette (e.g., deep slate text, subtle off-white backgrounds, elegant border dividers between major sections).
-        4. Ensure the layout is clean, spaced perfectly with margins/padding, and entirely print-ready.
+        ### DIGITAL VS. PRINT REQUIREMENT:
+        1. Wrap the entire body content inside a single `<div class="cv-container">` block.
+        2. Ensure the CSS uses media queries to apply a professional rounded wrapper box with a subtle drop shadow when viewed on a monitor, but renders completely clean and flat without margins/shadow boxes when printed to a PDF document.
 
-        ### DATA INPUT:
-        {optimized_markdown}
+        ### HARDCODED CSS SPECIFICATION TO ENFORCE:
+        ```css
+        @import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap)');
 
-        Output the response starting directly with <!DOCTYPE html> within the schema string field. Do not truncate any sections.
+        body {{ 
+            font-family: 'Inter', sans-serif; 
+            color: #111111; 
+            line-height: 1.5; 
+            font-size: 13px; 
+            margin: 0; 
+            padding: 0;
+            background-color: #f4f6f8; /* Soft corporate gray backdrop for the web viewer */
+            orphans: 3;
+            widows: 3;
+        }}
+
+        /* --- 💻 WEB MONITOR VIEWPORT ONLY --- */
+        @media screen {{
+            .cv-container {{
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 50px 60px;
+                background: #ffffff;
+                border: 1px solid #e1e4e8;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02);
+            }}
+        }}
+
+        /* --- 🖨️ PDF COMPILATION CANVAS ONLY --- */
+        @media print {{
+            @page {{
+                size: A4;
+                margin: 0.5in 0.5in 0.5in 0.5in;
+            }}
+            body {{
+                background-color: #ffffff;
+            }}
+            .cv-container {{
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+            }}
+        }}
+
+        /* --- SHARED EXECUTIVE STYLING CONFIG --- */
+        .header {{ 
+            text-align: center; 
+            margin-bottom: 25px; 
+            break-inside: avoid;
+        }}
+        .header h1 {{ font-size: 24px; font-weight: 700; text-transform: uppercase; margin: 0; }}
+        .header .tagline {{ font-size: 14px; font-weight: 500; margin: 5px 0; }}
+        .header .contact {{ font-size: 12px; color: #555555; }}
+
+        .section {{ margin-bottom: 20px; }}
+        .section-title {{ 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid #111111; 
+            margin: 20px 0 10px 0; 
+            padding-bottom: 3px; 
+            break-after: avoid;
+        }}
+
+        .job-entry, .education-entry, .currency-block {{
+            break-inside: avoid;
+            margin-bottom: 15px;
+        }}
+
+        .flex-row {{ 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: baseline; 
+            font-weight: 600; 
+            margin-top: 10px; 
+            break-after: avoid;
+        }}
+        .role-title {{ font-style: italic; color: #333333; margin: 2px 0 6px 0; }}
+        ul {{ margin: 5px 0 10px 0; padding-left: 20px; }}
+        li {{ margin-bottom: 5px; text-align: justify; }}
+            ### DATA INPUT:
+            {optimized_markdown}
+
         """.strip()
-    
     def ats_score(self, cv_text: str, ) -> str:
         return f"""
         You are a professional ATS evaluator. You will be given a CV for ATS Review and return a score.

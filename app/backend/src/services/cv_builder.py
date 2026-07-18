@@ -71,17 +71,6 @@ def generate_improved_cv(cv_file: str, jd_text: str, output_html_path: str) -> C
     # -------------------------------------------------------------------------
     # PHASE 2: HTML/CSS Code Rendering Loop
     # -------------------------------------------------------------------------
-    # print("Executing Phase 2: Generating responsive HTML and structural CSS...")
-    # phase_2_prompt = prompt_engine.cv_html_renderer(optimized_markdown=content_data.optimized_markdown)
-    
-    # phase_2_response = client.responses.parse(
-    #     model=settings.OPENAI_MODEL_CV_IMPROVEMENT,
-    #     max_output_tokens=settings.MAXIMUM_TOKENS_CV_IMPROVEMENT,
-    #     prompt_cache_retention=settings.PROMPT_CACHE_RETENTION_CV_IMPROVEMENT,
-    #     reasoning=settings.REASONING_EFFORT_CV_IMPROVEMENT,
-    #     input=[{"role": "user", "content": [{"type": "input_text", "text": phase_2_prompt}]}],
-    #     text_format=CVImprovementResponse,
-    # )
 
     print("Executing Phase 2: Generating responsive HTML and structural CSS...")
     phase_2_prompt = prompt_engine.cv_html_renderer(optimized_markdown=content_data.optimized_markdown)
